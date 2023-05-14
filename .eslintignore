@@ -1,0 +1,7 @@
+dist
+node_modules
+.output
+.nuxt
+.postcssrc
+.stylelintrc.json
+nuxt.config.ts

@@ -1,0 +1,12 @@
+stages:
+  - production
+
+production:
+  stage: production
+  script:
+    - docker-compose -f docker-compose.yml build --pull
+    - docker-compose -p PEDANT-RU-MAIN-FRONT -f docker-compose.yml up -d
+  environment:
+    name: Production
+  only:
+    - master

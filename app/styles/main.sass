@@ -1,0 +1,67 @@
+@import "reset.sass";
+@import "fonts.sass";
+@import "typography.sass";
+@import "variables.sass";
+
+
+:root {
+    --font-stack: 'ProximaNova', sans-serif;
+    --container-width: 100%;
+}
+
+body {
+    font-family: var(--font-stack);
+    font-weight: 400;
+}
+
+.container {
+    max-width: var(--container-width);
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 320px) {
+    .container {
+        max-width: var(--container-width);
+        adding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+@media (min-width: 1300px) {
+    .container {
+        max-width: 1300px;
+    }
+}
+
+hr {
+    border: 1px solid  rgba(0,0,0,.1);
+}

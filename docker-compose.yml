@@ -1,0 +1,20 @@
+version: '3.8'
+
+networks:
+  pedant-ru:
+    driver: bridge
+
+services:
+  pedant-front-main:
+    container_name: div-shkala-test
+    image: pedant-front-main
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "6053:3000"
+    volumes:
+      - /node_modules
+    command: npm run dev
+    networks:
+      - pedant-ru

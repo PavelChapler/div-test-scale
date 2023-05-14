@@ -1,0 +1,46 @@
+{
+  "name": "div",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "nuxi build",
+    "dev": "nuxi dev",
+    "start": "node .output/server/index.mjs",
+    "lint": "eslint .",
+    "css-check": "npx stylelint \"**/*.{css,scss,vue}\" ",
+    "css-fix": "npx stylelint \"**/*.{css,scss,vue, pcss}\" --fix",
+    "postinstall": "nuxi prepare",
+    "generate": "nuxi generate"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "0.4.6",
+    "@popperjs/core": "^2.10.1",
+    "pinia": "2.0.27"
+  },
+  "devDependencies": {
+    "@feature-sliced/eslint-config": "^0.1.0-beta.6",
+    "@typescript-eslint/eslint-plugin": "^5.48.1",
+    "@typescript-eslint/parser": "5.48.1",
+    "@vue/eslint-config-airbnb": "7.0.0",
+    "@vue/eslint-config-typescript": "11.0.2",
+    "autoprefixer": "^10.4.13",
+    "eslint": "8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.5.3",
+    "eslint-plugin-boundaries": "^3.1.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-nuxt": "^3.2.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-vue": "9.8.0",
+    "nuxt": "^3.3.1",
+    "prettier": "2.8.3",
+    "sass": "^1.62.1",
+    "stylelint": "14.16.1",
+    "stylelint-config-prettier": "9.0.4",
+    "stylelint-config-recommended-vue": "^1.4.0",
+    "stylelint-config-standard": "29.0.0",
+    "stylelint-config-standard-scss": "^6.1.0",
+    "stylelint-order": "6.0.1",
+    "typescript": "4.9.4"
+  }
+}

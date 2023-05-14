@@ -1,0 +1,46 @@
+{
+  "root": true,
+  "env": { "node": true, "browser": true, "es6": true },
+  "settings": { "import/resolver": { "typescript": {} } },
+  "extends": [
+    "plugin:vue/base",
+    "plugin:vue/vue3-essential",
+    "plugin:nuxt/recommended",
+    "plugin:vue/vue3-strongly-recommended",
+    "plugin:vue/vue3-recommended",
+    "@vue/typescript/recommended",
+    "@vue/airbnb",
+    "@feature-sliced"
+  ],
+  "rules": {
+    "radix": "off",
+    "vue/component-tags-order": ["error", {
+      "order": [ "script", "template", "style" ]
+    }],
+    "camelcase": "off",
+    "object-curly-newline": "off",
+    "vue/attribute-hyphenation": "off",
+    "vue/multi-word-component-names": 0,
+    "no-return-assign": [
+      "error", "except-parens"
+    ],
+    "global-require": "off",
+    "import/prefer-default-export": "off",
+    "import/first": "off",
+    "import/extensions": "off",
+    "import/no-extraneous-dependencies": "off",
+    "no-plusplus": [
+      "error", { "allowForLoopAfterthoughts": true }],
+    "vue/script-setup-uses-vars": "error",
+    "vue/no-setup-props-destructure": "off",
+    "vue/max-attributes-per-line": "off",
+    "vue/html-self-closing": "off",
+    "no-confusing-arrow": "off"
+  },
+  "globals": {
+  "defineProps": "readonly",
+  "defineEmits": "readonly",
+  "defineExpose": "readonly",
+  "withDefaults": "readonly"
+}
+}

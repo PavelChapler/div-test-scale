@@ -1,0 +1,27 @@
+{
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ES2019",
+    "module": "ESNext",
+    "strict": true,
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "types": [
+      "jest"
+    ],
+  },
+  "exclude": [
+    "node_modules",
+    "nuxt.config.ts"
+  ]
+}
