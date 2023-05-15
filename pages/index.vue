@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { Scale } from '@/entities';
+import { Demonstration } from '@/widgets';
 </script>
 
 <template>
   <main>
-    <Scale />
+    <Demonstration />
   </main>
 </template>
 

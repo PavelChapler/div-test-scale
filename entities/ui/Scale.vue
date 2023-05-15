@@ -1,8 +1,16 @@
 <script setup lang="ts">
 
-import { computed, ref } from 'vue';
+import { computed, onMounted, Ref, ref } from 'vue';
 
-const currentPoints = ref(43);
+interface IProp {
+  points: number
+}
+
+const props = withDefaults(defineProps<IProp>(), {
+  points: 100,
+});
+
+const currentPoints:Ref<number> = ref(43);
 
 const stages = [
   {
@@ -85,18 +93,24 @@ const stages = [
 ];
 
 const progressFill = computed(() => {
-  const marks = [25, 50, 100, 200, 500, 1000];
-  const currentValue = currentPoints.value; // текущее значение на шкале
+  const marks: number[] = [25, 50, 100, 200, 500, 1000];
+  const currentValue: number = currentPoints.value; // текущее значение на шкале
   let progress = 0;
 
   for (let i = 0; i < marks.length; i++) {
     if (currentValue >= marks[i]) {
       const addition = currentValue < 100 ? (((currentValue - marks[i]) / 10) * marks.length) : (((currentValue - marks[i]) / 100) * marks.length);
       progress = (((i + 1) * 100) / marks.length) + addition;
+    } else if (currentValue < 25) {
+      progress = currentValue / (100 / marks.length / 10);
     }
   }
 
   return progress;
+});
+
+onMounted(() => {
+  currentPoints.value = props.points;
 });
 </script>
 
@@ -127,17 +141,22 @@ const progressFill = computed(() => {
       </div>
     </div>
   </div>
-  <input v-model="currentPoints" type="text" class="input">
+  <div class="input-group">
+    <label for="pointInput">Выберите очки:</label>
+    <input id="pointInput" v-model="currentPoints" class="input" name="pointInput">
+  </div>
 </template>
 
 <style scoped lang="sass">
 .scale
-  margin-top: 80px
-  margin-left: 40px
+  width: 700px
+  height: 130px
+  display: flex
+  align-items: center
   .scale_wrapper
     border: 1px solid blue
     border-radius: 25px
-    width: 500px
+    width: 100%
     height: 50px
     position: relative
     .scale_fill-wrapper
@@ -147,19 +166,18 @@ const progressFill = computed(() => {
       width: 100%
       .scale_fill
         height: 100%
-        background: blue
+        background: #2a2a96
 
   .scale_segments
     display: flex
     position: absolute
     width: 100%
     height: 100%
-    opacity: .25
     .scale_segment
       position: relative
       height: 100%
       &:not(:first-child)
-        border-left: 1px solid red
+        border-left: 1px solid rgba(255, 0, 0, 0.41)
       &:last-child
         .segment_icon
           position: absolute
@@ -170,25 +188,32 @@ const progressFill = computed(() => {
         .segment_point
           position: absolute
           right: 0
-          bottom: -30px
+          bottom: -33px
           transform: translateX(0%)
       .segment_point
+        color: gray
         position: absolute
         right: 0
-        bottom: -30px
+        bottom: -33px
         transform: translateX(50%)
       .segment_icon
+        color: #2a2a96
         position: absolute
         right: 0
         top: -30px
         transform: translateX(50%)
 
     .segment_null
+      color: gray
       position: absolute
       transform: translateX(0%)
-      bottom: -30px
+      bottom: -33px
+
+.input-group > *
+  display: block
 
 .input
-  margin-top: 100px
-  margin-left: 100px
+  padding: 2px 5px
+  border: solid 1px gray
+  border-radius: 5px
 </style>
